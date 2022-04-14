@@ -6,13 +6,13 @@ moves = [1, 2, 3, 4, 5, 6, 7, 8, 9] # available moves
 def main(): # main function, this is the equivalent of one tic-tac-toe game
     player = 'x'
     
-    while whoWon() == None: # while the game has not ended
+    while whoWon(board) == None: # while the game has not ended
         move(player)
         if player == 'o':
             player = 'x'
         else:
             player = 'o'
-        winner = whoWon()
+        winner = whoWon(board)
     
     printBoard()
     if winner != 'draw':
@@ -65,7 +65,7 @@ def changeBoard(move, player):
     print("\n")
 
 
-def whoWon():
+def whoWon(board):
     '''Checks if the game is over, and returns draw or the player who won. 
     Returns none if the game is still ongoing.'''
 
@@ -82,12 +82,12 @@ def whoWon():
         if tiles[pattern[0]] != ' ' and tiles[pattern[0]] == tiles[pattern[1]] and tiles[pattern[1]] == tiles[pattern[2]]:
             return tiles[pattern[0]]
 
-    if isFull():
+    if isFull(board):
         return 'draw'
     return None
 
 
-def isFull():
+def isFull(board):
     '''Checks each tile in the board and checks if they are empty. 
     If none are empty, return True. Else, return false.'''
     for row in board:
