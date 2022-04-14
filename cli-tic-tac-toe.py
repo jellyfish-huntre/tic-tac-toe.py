@@ -12,8 +12,8 @@ def main(): # main function, this is the equivalent of one tic-tac-toe game
             player = 'x'
         else:
             player = 'o'
-        winner = whoWon(board)
     
+    winner = whoWon(board)
     printBoard()
     if winner != 'draw':
         print(winner + ' wins!')
